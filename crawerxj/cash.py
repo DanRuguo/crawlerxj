@@ -1,11 +1,19 @@
 import requests
 import csv
+import json
+
+# 读取token信息
+def load_tokens():
+    with open('wxykt_token.json', 'r', encoding='utf-8') as file:
+        return json.load(file)
+
+# 保存token信息
+def save_tokens(tokens):
+    with open('wxykt_token.json', 'w', encoding='utf-8') as file:
+        json.dump(tokens, file, ensure_ascii=False, indent=4)
 
 # 全局变量，存储薛俊当前账户的访问令牌和刷新令牌
-tokens = {
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzbm8iOiIyMjEwOTEwMzEwIiwidXNlcl9uYW1lIjoiMjIxMDkxMDMxMCIsInNjb3BlIjpbImFsbCJdLCJsb2dpbnR5cGUiOiJzbm9LZXlib2FyZCIsIm5hbWUiOiLolpvkv4oiLCJpZCI6NDM3MTIsImV4cCI6MTcyNjQ1MTk3NSwibG9naW5Gcm9tIjoiYXBwIiwidXVpZCI6ImIzMTZlNTI2NTcxNTIyOGUzNzE5ZGM1ZGMwOGZhZGI3IiwianRpIjoiYTIzNDBjNTYtZjFiMy00OWMxLTlmZGUtZmIyNmM0NjQ2ZTFjIiwiY2xpZW50X2lkIjoibW9iaWxlX3NlcnZpY2VfcGxhdGZvcm0ifQ.6KmYnidpbW_qyTuqD9ZNzK7hzefsry7hwd3aA33BZvw",
-    "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzbm8iOiIyMjEwOTEwMzEwIiwidXNlcl9uYW1lIjoiMjIxMDkxMDMxMCIsInNjb3BlIjpbImFsbCJdLCJsb2dpbnR5cGUiOiJzbm9LZXlib2FyZCIsImF0aSI6ImEyMzQwYzU2LWYxYjMtNDljMS05ZmRlLWZiMjZjNDY0NmUxYyIsIm5hbWUiOiLolpvkv4oiLCJpZCI6NDM3MTIsImV4cCI6MTcyMTAwODc3NSwibG9naW5Gcm9tIjoiYXBwIiwidXVpZCI6ImIzMTZlNTI2NTcxNTIyOGUzNzE5ZGM1ZGMwOGZhZGI3IiwianRpIjoiNjk3YTc1ZjAtMjkzYy00MDU2LTk2NjMtZGQyMmE5YTIxMGQ0IiwiY2xpZW50X2lkIjoibW9iaWxlX3NlcnZpY2VfcGxhdGZvcm0ifQ.IolgdMa_olChtd42kaxffxsNQuufos78S-P0nluhHCc"
-}
+tokens = load_tokens()
 
 def fetch_data(page_number):
     url = f"http://wxykt.tiangong.edu.cn/berserker-search/search/personal/turnover?size=8&current={page_number}&synAccessSource=app"
@@ -41,12 +49,14 @@ def refresh_tokens():
         new_tokens = response.json()
         tokens["access_token"] = new_tokens["access_token"]
         tokens["refresh_token"] = new_tokens.get("refresh_token", tokens["refresh_token"])
+        save_tokens(tokens)  # 保存新的token信息
 
 def save_to_csv(data, mode='a'):  # 默认追加模式
     headers = ['fromAccount', 'accType', 'fromJnNumber', 'toAccount', 'posCode', 'operCode', 'jndatetime', 'effectdate',
                'effectdateStr', 'cardBalance', 'ebagamt', 'usedcardnum', 'tranamt', 'ensureAmt', 'feeAmt',
                'consumeType', 'resume', 'bankacc', 'turnoverType', 'icon', 'tranCode', 'typeFrom', 'orderId', 'typeId',
-               'jndatetimeStr', 'payName', 'payIcon', 'remark', 'userName', 'labelName', 'labelId', 'labelRemark', 'locationName']
+               'jndatetimeStr', 'payName', 'payIcon', 'remark', 'userName', 'labelName', 'labelId',
+               'labelRemark', 'locationName']
     with open('transactions.csv', mode=mode, newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         if mode == 'w':  # 如果是写模式，则写入头部

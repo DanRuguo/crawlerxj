@@ -1,5 +1,28 @@
 import requests
 from bs4 import BeautifulSoup
+import json
+
+# 读取vpn-config_web.json文件
+with open('vpn-config_web.json', 'r', encoding='utf-8') as file:
+    vpn_config = json.load(file)
+
+# 从vpn-config获取指定的cookies
+specified_cookies = {
+    "_gscu_849404863": vpn_config['auth']['session'].get("_gscu_849404863", ""),
+    "security_session_verify": vpn_config['auth']['session'].get("security_session_verify", ""),
+    "JSESSIONID_-_pt.tiangong.edu.cn": vpn_config['auth']['session'].get("JSESSIONID_-_pt.tiangong.edu.cn", ""),
+    "TWFID": vpn_config['auth']['session'].get("TWFID", ""),
+    "ASP.NET_SessionId": vpn_config['auth']['session'].get("ASP.NET_SessionId", ""),
+    "yhmc": vpn_config['auth']['session'].get("yhmc", ""),
+    "kmjc": "422222",  # 确保值是字符串
+    "switch": "0",  # 确保值是字符串
+    "PageSize": "20",  # 确保值是字符串
+    "isHomeYeZeroHide": "True"  # 确保值是字符串
+}
+
+# 将cookies转换为请求头格式
+cookie_header = "; ".join([f"{cookie_name}={cookie_value}" for cookie_name, cookie_value in specified_cookies.items() if cookie_value])
+print("Cookie:", cookie_header)
 
 # 设置请求头，模拟浏览器行为
 headers = {
@@ -8,12 +31,12 @@ headers = {
     'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
     'Cache-Control': 'no-cache',
     'Connection': 'keep-alive',
+    'Cookie': cookie_header,
     'Host': '172-31-133-126.vpn.tiangong.edu.cn:8118',
     'Pragma': 'no-cache',
     'Referer': 'http://172-31-133-126.vpn.tiangong.edu.cn:8118/dlpt/Newindex.aspx',
     'Upgrade-Insecure-Requests': '1',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
-    'Cookie': '_gscu_849404863=20413664uxji4619; TWFID=d97fd6ee3b1f54a0; JSESSIONID_-_pt.tiangong.edu.cn=E9792286397B534B9A6B2C8FF6BD08A0; security_session_verify=33215a2bb1240ac81423ca25860b7cb6; ASP.NET_SessionId=a520jx5dmb5tfekmm102o4zh; yhmc=%e8%96%9b%e4%bf%8a; kmjc=422222; switch=0; PageSize=20; isHomeYeZeroHide=True; Ygbh=5QIWBj3fiHo8nm0ecdTZJQ%3d%3d; lxdh=khAMyG6iKScRpS8aH7uOfQ%3d%3d'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 }
 
 # 发起GET请求
