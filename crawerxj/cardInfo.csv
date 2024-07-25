@@ -1,2 +1,0 @@
-account,name,unsettle_amount,db_balance,acc_status,lostflag,freezeflag,barflag,idflag,createdate,expdate,cardtype,cardname,bankacc,autotrans_limite,autotrans_amt,autotrans_flag,mscard,elec_accamt,phone,cert,accinfo,voucher,voucherStatus,card_background,card_logo,card_name,card_name_en,department_name,card_font_color
-14193,薛俊,-7100,8670,0,0,0,0,1,,20260630,800,正式卡,,2000,5000,1,0,0,,34132220031203602X,,,0,,,,,天工创新学院,#000000
