@@ -1,0 +1,42 @@
+{
+    "domain": {
+        "domainList": [],
+        "enableDomainShare": 1
+    },
+    "rule": {
+        "blacklist": [
+            "127.0.0.1",
+            "ptcas.tiangong.edu.cn"
+        ],
+        "whitelist": [
+            "*"
+        ]
+    },
+    "version": "1.4.8",
+    "urlMap": [],
+    "base": {
+        "panDomain": "vpn.tiangong.edu.cn",
+        "vpnUrl": "http://vpn.tiangong.edu.cn:8118",
+        "scheme": "http",
+        "port": "8118",
+        "score_url_fragment": "3koE778j3t"
+    },
+    "auth": {
+        "session": {
+            "_gscs_849404863": "217359828rthl889|pv:1",
+            "_gscbrs_849404863": "1",
+            "_gscu_849404863": "21735982pw0mzi89",
+            "security_session_verify": "5732fb82cd4d01d6b5884b9f5b5b5246",
+            "JSESSIONID_-_pt.tiangong.edu.cn": "6C3253108D10C1D8C682FC1E7804C685",
+            "CASTGC_-_pt.tiangong.edu.cn": "TGT-452380-yaYKbYc1iF241b1pVPeS92qo2osedWCBEIcVrow6kZkdy0VMRy-zfca",
+            "JSESSIONID": "aaaofEyrTbEXm7bLf7V_y",
+            "student.urpSoft.cn": "aaaofEyrTbEXm7bLf7V_y"
+        }
+    },
+    "blockAds": {
+        "enable": true
+    },
+    "cookie": {
+        "autoClean": true
+    }
+}
