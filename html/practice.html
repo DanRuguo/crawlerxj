@@ -1,0 +1,237 @@
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<script src="/aexp/js/jquery.min.js"></script>
+		<link href="/aexp/css/style.css" rel="stylesheet" type="text/css" />
+		<link href="/aexp/css/select.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="/aexp/js/jquery.js"></script>
+		<script type="text/javascript" src="/aexp/js/jquery.idTabs.min.js"></script>
+		<script type="text/javascript" src="/aexp/js/select-ui.min.js"></script>
+		<script type="text/javascript">
+			function refresh(){
+				var yearterm = $("#yearterm").val();
+				var hrefStr = "/practice/practiceAction/tasks.action?yearterm="+yearterm;
+				hrefStr = encodeURI(hrefStr);
+				window.location.href = hrefStr;
+			}
+			$(function(){
+				
+			});
+		</script>
+		<style>
+			a {
+				color:#0070cc;
+			}
+			select {
+				opacity: 1;width: 150px;height: 25px;
+				border: 1px solid #c7c7c7;
+				filter:alpha(opacity=100);
+			}
+		</style>
+	</head>
+	<body>
+		 <!-- 头部 -->
+	 <div class="place">
+		<span>位置：</span>
+		<ul class="placeul">
+			<li><a href="/aexp/stuNotice.jsp">首页</a></li>
+			<li><a href="#" style = "font-weight: bold;color: #D91316;">实习实训</a></li>
+		</ul>
+    </div>
+     <div class="formbody">
+     	<div id="usual1" class="usual"> 
+			<h3 style="background: url(/aexp/stuImages/table_title1.jpg);height: 32px;border:#ccc solid 1px;">
+				<img src="/aexp/stuImages/table_title.jpg" style = "float: left;">
+				<span style="float: left;line-height: 32px;">实习任务</span>
+			</h3>
+			<div id="tab2" >
+				<p style="margin:5px;">
+					<label>学期:</label>&nbsp;&nbsp;
+					<select id="yearterm" name="yearterm">
+						
+							
+							
+								<option value="2025-2026-1" >2025-2026 上学期</option>
+							
+						
+							
+							
+								<option value="2025-2026-2" >2025-2026 下学期</option>
+							
+						
+							
+							
+								<option value="2025-2026-3" >2025-2026 小学期</option>
+							
+						
+							
+							
+								<option value="2024-2025-1" >2024-2025 上学期</option>
+							
+						
+							
+							
+								<option value="2024-2025-2" >2024-2025 下学期</option>
+							
+						
+							
+							
+								<option value="2024-2025-3" >2024-2025 小学期</option>
+							
+						
+							
+							
+								<option value="2023-2024-1" >2023-2024 上学期</option>
+							
+						
+							
+								<option value="2023-2024-2" selected="selected">
+									2023-2024 下学期
+								</option>
+							
+							
+						
+							
+							
+								<option value="2023-2024-3" >2023-2024 小学期</option>
+							
+						
+							
+							
+								<option value="2022-2023-1" >2022-2023 上学期</option>
+							
+						
+							
+							
+								<option value="2022-2023-2" >2022-2023 下学期</option>
+							
+						
+							
+							
+								<option value="2022-2023-3" >2022-2023 小学期</option>
+							
+						
+							
+							
+								<option value="2021-2022-1" >2021-2022 上学期</option>
+							
+						
+							
+							
+								<option value="2021-2022-2" >2021-2022 下学期</option>
+							
+						
+							
+							
+								<option value="2021-2022-3" >2021-2022 小学期</option>
+							
+						
+							
+							
+								<option value="2020-2021-1" >2020-2021 上学期</option>
+							
+						
+							
+							
+								<option value="2020-2021-2" >2020-2021 下学期</option>
+							
+						
+							
+							
+								<option value="2020-2021-3" >2020-2021 小学期</option>
+							
+						
+					</select>&nbsp;&nbsp;
+					<input name="" type="button" onclick="javascript:refresh();" class="btnc mid pr" value="查询"/>
+				</p>
+				<table class="tablelist">
+					<tr>
+						<th>所属课程</th>
+						<th>课程类型</th>
+						<th>学时</th>
+						<th>学分</th>
+						<th>开课单位</th>
+						<th>负责教师</th>
+						<th>是否允许自主</th>
+						<th>操作</th>
+					</tr>
+					
+						<tr>
+							<td>11620201-基础开发劳动教育实习</td>
+							<td>实习实训课</td>
+							<td>32</td>
+							<td>1</td>
+							<td>16-计算机科学与技术学院</td>
+							<td>20120021-黄艳丽</td>
+							<td>不允许</td>
+							<td>
+								<a href="outline.action?course_code=11620201">详情</a>
+							</td>
+						</tr>
+					
+						<tr>
+							<td>11674231-基础开发实习</td>
+							<td>实习实训课</td>
+							<td>24</td>
+							<td>1</td>
+							<td>16-计算机科学与技术学院</td>
+							<td>20120021-黄艳丽</td>
+							<td>不允许</td>
+							<td>
+								<a href="outline.action?course_code=11674231">详情</a>
+							</td>
+						</tr>
+					
+						<tr>
+							<td>13520022-电子实践</td>
+							<td>实习实训课</td>
+							<td>40</td>
+							<td>2</td>
+							<td>35-工程教学实习训练中心</td>
+							<td>20109031-杜启飞</td>
+							<td>不允许</td>
+							<td>
+								<a href="outline.action?course_code=13520022">详情</a>
+							</td>
+						</tr>
+					
+				</table>
+			</div>
+		<div id="myPage" style="margin-top: 10px;"><ul style="float:right;">
+   		<li>
+   			<p>第 1 页 / 共 1 页</p>
+   			
+   			
+				
+				
+			 <a href="/practice/practiceAction/tasks.action?page.pageNum=1&amp;yearterm=2023-2024-2">首页</a>
+			
+				
+				
+			<a href="/practice/practiceAction/tasks.action?page.pageNum=0&amp;yearterm=2023-2024-2">上一页</a>
+			
+			
+				
+				
+			<a href="/practice/practiceAction/tasks.action?page.pageNum=2&amp;yearterm=2023-2024-2">下一页</a>
+				
+			
+				 
+				 
+			<a href="/practice/practiceAction/tasks.action?page.pageNum=1&amp;yearterm=2023-2024-2">末页</a>
+   		</li>
+   </ul></div>
+		</div>
+     </div>
+    
+	</body>
+</html>

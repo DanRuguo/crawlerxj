@@ -1,0 +1,145 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<script src="/aexp/js/jquery.min.js"></script>
+		<link href="/aexp/css/style.css" rel="stylesheet" type="text/css" />
+		<link href="/aexp/css/select.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="/aexp/js/jquery.js"></script>
+		<script type="text/javascript" src="/aexp/js/jquery.idTabs.min.js"></script>
+		<script type="text/javascript" src="/aexp/js/select-ui.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+    			$(".select1").uedSelect({
+					width : 200	  
+				});
+			});
+			function refresh(){
+				var key = $("#key").val();
+				var hrefStr = "/srtp/srtpAction/toJoinProject.action?key="+key;
+				hrefStr = encodeURI(hrefStr);
+				window.location.href = hrefStr;
+			}
+			$(function(){
+				
+			});
+		</script>
+		<style>
+			a {
+				color:#0070cc;
+			}
+			
+		</style>
+	</head>
+	<body>
+		 <!-- 头部 -->
+	 <div class="place">
+		<span>位置：</span>
+		<ul class="placeul">
+			<li><a href="/aexp/stuNotice.jsp">首页</a></li>
+			<li><a href="#" style = "font-weight: bold;color: #D91316;">大学生创新创业</a></li>
+		</ul>
+    </div>
+     <div class="formbody">
+     	<div id="usual1" class="usual"> 
+			<h3 style="background: url(/aexp/stuImages/table_title1.jpg);height: 32px;border:#ccc solid 1px;">
+				<img src="/aexp/stuImages/table_title.jpg" style = "float: left;">
+				<span style="float: left;line-height: 32px;">我参与的项目</span>
+			</h3>
+			<div id="tab2" >
+				<p style="margin:5px;">
+					<label>关键字</label>&nbsp;&nbsp;
+					<input name="key" id="key" value="" type="text" class="scinput" />&nbsp;
+					<input name="" type="button" onclick="javascript:refresh();" class="btnc mid pr" value="查询"/>
+				</p>
+				<table class="tablelist">
+					<tr>
+						<th>项目名称</th>
+						<th>主持人</th>
+						<th>批准经费(元)</th>
+						<th>立项时间</th>
+						<th>项目阶段</th>
+						<th>项目状态</th>
+						<th>当前进度</th>
+						<th>操作</th>
+					</tr>
+					
+						<tr>
+							<td>基于深度学习的智慧交通管理系统</td>
+							<td>王正博</td>
+							<td>2000</td>
+							<td>2024-06-07</td>
+							<td>
+								项目中期
+							</td>
+							<td>
+								未提交
+							</td>
+							<td>0%</td>
+							<td>
+								<a href="srtp/srtpAction/toGoodProShow.action?id=8775&type=all">
+									查看</a>
+								
+							</td>
+						</tr>
+					
+						<tr>
+							<td>“测”无遗算——骨巨细胞瘤互联诊断系统</td>
+							<td>朱悦</td>
+							<td>0</td>
+							<td></td>
+							<td>
+								项目申请
+							</td>
+							<td>
+								待校级审核
+							</td>
+							<td>0%</td>
+							<td>
+								<a href="srtp/srtpAction/toGoodProShow.action?id=8292&type=all">
+									查看</a>
+								
+							</td>
+						</tr>
+					
+				</table>
+			</div>
+		<div id="myPage" style="margin-top: 10px;">
+		<ul style="float:right;">
+   		<li>
+   			<p>第 1 页 / 共 1 页</p>
+   			
+   			
+				
+				
+			 <a href="/srtp/srtpAction/toJoinProject.action?page.pageNum=1&amp;key=">首页</a>
+			
+				
+				
+			<a href="/srtp/srtpAction/toJoinProject.action?page.pageNum=0&amp;key=">上一页</a>
+			
+			
+				
+				
+			<a href="/srtp/srtpAction/toJoinProject.action?page.pageNum=2&amp;key=">下一页</a>
+				
+			
+				 
+				 
+			<a href="/srtp/srtpAction/toJoinProject.action?page.pageNum=1&amp;key=">末页</a>
+   		</li>
+   </ul></div>
+		</div>
+     </div>
+    
+	</body>
+</html>

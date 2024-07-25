@@ -1,0 +1,151 @@
+
+
+
+
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我参与的竞赛</title>
+<script src="/aexp/js/jquery.min.js"></script>
+<link href="/aexp/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/aexp/js/jquery.idTabs.min.js"></script>
+<!--弹框特效-->
+<script  src="/aexp/layui/layui.js"></script>
+<script   src="/aexp/layui/xadmin.js"></script>
+<style>
+	.tablelist td {
+		border-right: dotted 1px #c7c7c7;
+	}
+	a{
+		color:#0070cc ;
+	}
+	#myPage ul li{
+		text-align: right; 
+	}
+</style>
+</head>
+
+<body>
+
+	<div class="place">
+		<span>位置：</span>
+		<ul class="placeul">
+			<li><a href="#">首页</a></li>
+			<li><a href="#" style = "font-weight: bold;color: #D91316;">我参与的竞赛</a></li>
+		</ul>
+    </div>
+    <div class="formbody">
+		<div id="usual1" class="usual"> 
+			<div id="tab1" class="tabson" style="margin: 0px 0px;">
+				<h3 style="background: url(/aexp/stuImages/table_title1.jpg);height: 34px;border:#ccc solid 1px;">
+				<img src="/aexp/stuImages/table_title.jpg" style="float: left;">
+				<span style="float: left;line-height: 32px;">我参与的竞赛列表</span>
+				</h3>
+				<table class="tablelist" style="margin-top:10px;">
+					<thead>
+					</thead>
+					<tbody>
+						<tr>
+							<th>竞赛名称</th>
+							<th>学年</th>
+							<th>团队/个人名</th>
+							<th>状态</th>
+							<th width="350">审核意见</th>
+							<th>操作</th>
+						</tr>
+						
+						
+							
+								<tr> 
+									<td>
+										<a href="javascript:x_admin_show('竞赛详情',
+												'/race/raceAction/myRace_queryMyRaceById.action?id=25909',
+												1100,500)">2023年全国大学生数学竞赛
+										</a>
+									</td>
+									<td>2022-2023</td>
+									
+									
+									<td><a href="javascript:x_admin_show('报名详情',
+												'/race/raceAction/myRace_queryMyApply.action?studentTeamId=18905&subitemId=118535&isEdit=0',
+												1100,500)">薛俊</a></td>
+									
+									<td>学院审核通过</td>
+									<td>
+										
+									</td>
+									<td>
+										<a href="myRace_forwardTab.action?studentTeamId=18905&subitemId=118535">竞赛过程详情</a> |
+										
+											<a href="javascript:x_admin_show('报名详情',
+												'/race/raceAction/myRace_queryMyApply.action?studentTeamId=18905&subitemId=118535&isEdit=0',
+												1100,500)">查看报名信息</a>
+										
+										
+									</td>
+								</tr>
+							
+								<tr> 
+									<td>
+										<a href="javascript:x_admin_show('竞赛详情',
+												'/race/raceAction/myRace_queryMyRaceById.action?id=32777',
+												1100,500)">2023年全国大学生数学建模竞赛
+										</a>
+									</td>
+									<td>2022-2023</td>
+									
+									
+									<td><a href="javascript:x_admin_show('报名详情',
+												'/race/raceAction/myRace_queryMyApply.action?studentTeamId=17654&subitemId=32778&isEdit=0',
+												1100,500)">036</a></td>
+									
+									<td>学院审核通过</td>
+									<td>
+										
+									</td>
+									<td>
+										<a href="myRace_forwardTab.action?studentTeamId=17654&subitemId=32778">竞赛过程详情</a> |
+										
+											<a href="javascript:x_admin_show('报名详情',
+												'/race/raceAction/myRace_queryMyApply.action?studentTeamId=17654&subitemId=32778&isEdit=0',
+												1100,500)">查看报名信息</a>
+										
+										
+									</td>
+								</tr>
+							
+						
+					</tbody>
+				</table>
+			  	<br>
+				<div id="myPage">
+					<ul>
+						<li>
+							<p>第 1 页 / 共 1 页</p>
+
+							
+								
+							 <a href="/race/raceAction/myRace_queryMyRace.action?pageNum=1">首页</a>
+							
+								
+							<a href="/race/raceAction/myRace_queryMyRace.action?pageNum=0">上一页</a>
+							
+							
+								
+							<a href="/race/raceAction/myRace_queryMyRace.action?pageNum=2">下一页</a>
+								
+							
+								 
+							<a href="/race/raceAction/myRace_queryMyRace.action?pageNum=1">末页</a>
+						</li>
+				   </ul>
+				</div>
+			</div> 
+		</div> 
+    </div>
+</body>
+</html>
