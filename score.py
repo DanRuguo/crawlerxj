@@ -64,6 +64,8 @@ if response.status_code == 200:
                 "course_name": score["courseName"],
                 "credit": score["credit"],
                 "course_score": score["courseScore"],
+                "courseAttributeName": score["courseAttributeName"],
+                "courseAttributeCode": score["courseAttributeCode"],
                 "grade_point": score["gradePointScore"],
                 "grade_name": score["gradeName"],
                 "exam_time": score["examTime"],
@@ -78,6 +80,40 @@ if response.status_code == 200:
 
     # 转换为DataFrame
     df = pd.DataFrame(score_data)
+
+    # 确保 'credit' 和 'course_score' 列是数值类型
+    df['credit'] = pd.to_numeric(df['credit'], errors='coerce')  # 将无法转换的设置为 NaN
+    df['course_score'] = pd.to_numeric(df['course_score'], errors='coerce')
+
+    # 过滤掉 "任选" 类别的课程
+    filtered_data = df[df['courseAttributeName'] != '任选']
+
+    # 按照 'academic_year' 和 'term' 分组
+    grouped_data = filtered_data.groupby(['academic_year', 'term'])
+
+    # 计算每个学期的总学分、总学分绩
+    semester_stats = grouped_data.apply(
+        lambda df: pd.Series({
+            '总学分': df['credit'].sum(),
+            '总学分绩': (df['credit'] * df['course_score']).sum(),
+        })
+    )
+
+    # 计算平均学分绩
+    semester_stats['平均学分绩'] = semester_stats['总学分绩'] / semester_stats['总学分']
+
+    # 计算所有学期的综合统计
+    overall_stats = {
+        '所有学期总学分': semester_stats['总学分'].sum(),
+        '所有学期总学分绩': semester_stats['总学分绩'].sum(),
+        '总平均学分绩': semester_stats['总学分绩'].sum() / semester_stats['总学分'].sum()
+    }
+
+    semester_stats.reset_index(inplace=True)
+
+    # 输出数据查看
+    print(semester_stats)
+    print(overall_stats)
 
     # 保存为CSV文件
     df.to_csv("student_scores.csv", index=False, encoding='utf-8-sig')
