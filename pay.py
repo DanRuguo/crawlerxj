@@ -11,11 +11,14 @@ import time
 import logging
 
 # 设置日志记录到文件
-logging.basicConfig(filename='pay.txt', level=logging.INFO, format='%(message)s', filemode='w')
+logging.basicConfig(filename='pay.txt', level=logging.INFO, format='%(message)s', filemode='w', encoding='gbk')
 
-# 替代print函数为logging.info
+# 替代print函数为logging.info，并去除转义字符
 def log_print(*args, **kwargs):
-    logging.info(' '.join(map(str, args)))
+    # 处理输入参数，去除转义字符并合并成字符串
+    message = ' '.join(map(str, args)).replace('\xa0', ' ').replace('\u3000', ' ')
+    # 记录日志
+    logging.info(message)
 
 # 降低 onnxruntime 日志级别
 onnxruntime.set_default_logger_severity(3)
