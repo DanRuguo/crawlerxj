@@ -8,6 +8,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+import logging
+
+# 设置日志记录到文件
+logging.basicConfig(filename='pay.txt', level=logging.INFO, format='%(message)s', filemode='w')
+
+# 替代print函数为logging.info
+def log_print(*args, **kwargs):
+    logging.info(' '.join(map(str, args)))
 
 # 降低 onnxruntime 日志级别
 onnxruntime.set_default_logger_severity(3)
@@ -76,6 +84,8 @@ if user_info_element:
     user_info_text = user_info_element.get_text(separator=' ').strip()
     print("用户信息提取成功：")
     print(user_info_text)
+    log_print("用户信息：")
+    log_print(user_info_text)
     # 打印登录后的Cookies
     cookies = session.cookies.get_dict()
     print("登录后的Cookies:")
@@ -164,8 +174,10 @@ if table:
 
 # 打印交易记录
 print("学校缴费记录:")
+log_print("学校缴费记录:")
 for transaction in transactions:
     print(transaction)
+    log_print(transaction)
 
 # 访问报名信息查看页面的URL
 bm_info_url = f"{base_url}/Modules/bm/bmxxck.aspx"
@@ -198,8 +210,10 @@ if table:
 
 # 打印报名信息记录
 print("报名信息记录:")
+log_print("报名信息记录:")
 for record in bm_records:
     print(record)
+    log_print(record)
 
 # 设置ChromeDriver选项
 chrome_options = webdriver.ChromeOptions()
@@ -268,8 +282,10 @@ while True:
 
         # 打印提取到的信息
         print("报名详细信息:")
+        log_print("报名详细信息:")
         for key, value in info.items():
             print(f"{key}: {value}")
+            log_print(f"{key}: {value}")
 
         # 信息提取成功，退出循环
         break
@@ -283,4 +299,4 @@ while True:
     time.sleep(5)  # 每5秒检查一次页面内容
 
 # 关闭WebDriver
-# driver.quit()
+driver.quit()
